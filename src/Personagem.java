@@ -4,23 +4,48 @@ public class Personagem {
     private Sword sword;
     private int level;
     private int monster_kil;
+    private int xp;
+    private boolean death_moster;
+    private int xp_limit;
+ 
+    //construtor
     public Personagem(String name, Sword sword){
         this.name = name;
         this.sword = sword;
         this.level = 1;
+        this.xp = 0;
         this.monster_kil = 0;
+        this.xp_limit = 100;
 
     }
-    public void ataca(Personagem target){
-        int dano = sword.getBase_damage();
-        target.life -= dano;
-        System.out.println(name + " Atacou " + target.name + " causando " + dano + " de dano");
-        if (target.life == 0){
-            target.setMonster_kil(target.getMonster_kil() + 1);
-            System.out.println("O " + target.name + "level" + target.level + " morreu!");
 
-        }
+    
 
+    //setters e gatters
+    public Sword getSword() {
+        return sword;
+    }
+    public void setSword(Sword sword) {
+        this.sword = sword;
+    }
+    public int getXp() {
+        return xp;
+    }
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+    public int getXp_limit() {
+        return xp_limit;
+    }
+
+    public void setXp_limit(int xp_limit) {
+        this.xp_limit = xp_limit;
+    }
+    public boolean isDeath_moster() {
+        return death_moster;
+    }
+    public void setDeath_moster(boolean death_moster) {
+        this.death_moster = death_moster;
     }
 
     public Sword getEspada() {
@@ -60,7 +85,27 @@ public class Personagem {
     }
 
     public void level_up(){
+        this.level += 1;
+        this.xp -= xp_limit;
+        this.xp_limit *= 1.5;
+        System.out.println("Level Up!\n Level:" + this.level);
+        }
+    //metodo de ataque do personagem ao outro
+    public void ataca(Personagem target){
+        int xp_monster = 50;
+        int damage = sword.getBase_damage();
+        target.life -= damage;
+        System.out.println(name + " Atacou " + target.name + " causando " + damage + " de dano");
+            if (target.life == 0){
+                this.xp += xp_monster;
+                if (this.getXp()>= this.getXp_limit()) {
+                    this.level_up();
+                    
+                } 
+                target.setMonster_kil(target.getMonster_kil() + 1);
+                System.out.println("O " + target.getName() + "level" + target.getLevel() + " morreu!");
         }
 
-
+    }
 }
+
