@@ -6,7 +6,7 @@ public class Personagem {
     private int monster_kil;
     private int xp;
     private boolean death_moster;
-    private int xp_limit;
+    private double xp_limit;
  
     //construtor
     public Personagem(String name, Sword sword){
@@ -28,17 +28,17 @@ public class Personagem {
     public void setSword(Sword sword) {
         this.sword = sword;
     }
-    public int getXp() {
+    public double getXp() {
         return xp;
     }
-    public void setXp(int xp) {
-        this.xp = xp;
+    public void setXp(double xp) {
+        this.xp = (int) xp;
     }
-    public int getXp_limit() {
+    public double getXp_limit() {
         return xp_limit;
     }
 
-    public void setXp_limit(int xp_limit) {
+    public void setXp_limit(double xp_limit) {
         this.xp_limit = xp_limit;
     }
     public boolean isDeath_moster() {
@@ -85,9 +85,9 @@ public class Personagem {
     }
 
     public void level_up(){
-        this.level += 1;
-        this.xp -= xp_limit;
-        this.xp_limit *= 1.5;
+        setLevel(getLevel() + 1);
+        setXp(getXp() - getXp_limit());
+        setXp_limit(getXp_limit() * 1.5);
         System.out.println("Level Up!\n Level:" + this.level);
         }
     //metodo de ataque do personagem ao outro
@@ -95,8 +95,8 @@ public class Personagem {
         int xp_monster = 50;
         int damage = sword.getBase_damage();
         target.life -= damage;
-        System.out.println(name + " Atacou " + target.name + " causando " + damage + " de dano");
-            if (target.life == 0){
+        System.out.println(getName() + " Atacou " + target.getName() + " causando " + damage + " de dano");
+            if (target.getLife() == 0){
                 this.xp += xp_monster;
                 if (this.getXp()>= this.getXp_limit()) {
                     this.level_up();

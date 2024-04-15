@@ -18,7 +18,7 @@ public class Main {
             System.out.println(heroi.getLife());
 
 
-            System.out.println("Vida do " + monstro2.getName() +" "+  monstro2.getLife());
+            System.out.println("Vida do " + monstro2.getName() + " " +  monstro2.getLife());
             System.out.println(monstro2.getMonster_kil());
             System.out.println(heroi.getLife());
 
