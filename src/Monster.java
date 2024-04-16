@@ -3,19 +3,18 @@ public class Monster {
     private String name_monster;
     private double xp_drop;
     private int base_damage;
-    private int level;
-    private Personagem personagem;
+    private int level_monster;
     private int life_monster;
 
     //construtor
     public Monster(String name_monster){
-        this.level = 1;
+        this.level_monster = 1;
         this.life_monster = 100;
         this.name_monster = name_monster;
 
     }
     //getters e setters
-    public String getName() {
+    public String getName_monster() {
         return name_monster;
     }
 
@@ -39,12 +38,12 @@ public class Monster {
         this.base_damage = base_damage;
     }
 
-    public int getLevel() {
-        return level;
+    public int getLevel_monster() {
+        return level_monster;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setLevel_monster(int level) {
+        this.level_monster = level;
     }
 
     public int getLife_monster() {
@@ -56,9 +55,9 @@ public class Monster {
     }
 
     //metodos
-    public void level_up(){
-        if (personagem.getLevel() > getLevel())
-            setLevel(personagem.getLevel());
+    public void level_up(int level){
+        if (level > getLevel_monster())
+            setLevel_monster(level);
 
     }
 }

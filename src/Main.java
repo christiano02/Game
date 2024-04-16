@@ -13,11 +13,11 @@ public class Main {
             hero.attacks(monstro1);
             hero.attacks(monstro2);
 
-            System.out.println("Vida do " + monstro1.getName() + " " + monstro1.getLife_monster());
+            System.out.println("Vida do " + monstro1.getName_monster() + " " + monstro1.getLife_monster());
             System.out.println(hero.getLife());
 
 
-            System.out.println("Vida do " + monstro2.getName() + " " +  monstro2.getLife_monster());
+            System.out.println("Vida do " + monstro2.getName_monster() + " " +  monstro2.getLife_monster());
             System.out.println(hero.getLife());
 
         } while (monstro1.getLife_monster() != 0);

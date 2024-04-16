@@ -77,14 +77,14 @@ public class Personagem {
         int xp_monster = 50;
         int damage = sword.getBase_damage();
         target.setLife_monster(target.getLife_monster() - damage);
-        System.out.println(getName() + " Atacou " + target.getName() + " causando " + damage + " de dano");
+        System.out.println(getName() + " Atacou " + target.getName_monster() + " causando " + damage + " de dano");
         if (target.getLife_monster() == 0){
             this.xp += xp_monster;
             if (this.getXp()>= this.getXp_limit()) {
                 this.level_up();
-                    
+                target.level_up(getLevel());
             }
-            System.out.println("O " + target.getName() + "level" + target.getLevel() + " morreu!");
+            System.out.println("O " + target.getName_monster() + " level " + target.getLevel_monster() + " morreu!");
         }
     }
 }
