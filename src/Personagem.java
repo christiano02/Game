@@ -15,6 +15,7 @@ public class Personagem {
         this.level = 1;
         this.xp = 0;
         this.xp_limit = 100;
+        this.life = 100;
 
     }
     //setters e getters
