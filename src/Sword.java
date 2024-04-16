@@ -31,9 +31,7 @@ public class Sword {
         this.level = level;
     }
     public void level_up(){
-        if (getLevel() == 2){
-
-        }
+        this.setBase_damage(this.getBase_damage());
 
     }
 

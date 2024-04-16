@@ -3,9 +3,10 @@ public class Personagem {
     private int life;
     private Sword sword;
     private int level;
-    private int xp;
+    private double xp;
     private double xp_limit;
     private Monster monster;
+    private boolean status_life;
 
  
     //construtor
@@ -16,6 +17,7 @@ public class Personagem {
         this.xp = 0;
         this.xp_limit = 100;
         this.life = 100;
+        this.status_life = true;
 
     }
     //setters e getters
@@ -44,7 +46,7 @@ public class Personagem {
         this.sword = sword;
     }
     public int getLife() {
-        return life;
+        return (int) life;
     }
     public void setLife(int life) {
         this.life = life;
@@ -64,28 +66,48 @@ public class Personagem {
     public void setMonster(Monster monster) {
         this.monster = monster;
     }
+    public boolean isStatus_life() {
+        return status_life;
+    }
+    public void setStatus_life(boolean status_life) {
+        this.status_life = status_life;
+    }
 
     //metodo para subir de nivel do personagem
     public void level_up(){
         setLevel(getLevel() + 1);
         setXp(getXp() - getXp_limit());
         setXp_limit(getXp_limit() * 1.5);
-        System.out.println("Level Up!\n Level:" + this.level);
+        setLife((int) (getLife() * 0.2));
+        System.out.println("Level Up!\nLevel:" + this.level);
     }
 
     //metodo de ataque do personagem
     public void attacks(Monster target){
-        int xp_monster = 50;
+        double xp_monster = target.getXp_drop();
         int damage = sword.getBase_damage();
         target.setLife_monster(target.getLife_monster() - damage);
-        System.out.println(getName() + " Atacou " + target.getName_monster() + " causando " + damage + " de dano");
+        System.out.println(this.getName() + " Atacou " + target.getName_monster() + " causando " + damage + " de dano");
         if (target.getLife_monster() == 0){
             this.xp += xp_monster;
+            System.out.println("O " + target.getName_monster() + " level " + target.getLevel_monster() + " morreu!");
+            System.out.println("XP drop: " + target.getXp_drop());
             if (this.getXp()>= this.getXp_limit()) {
                 this.level_up();
                 target.level_up(getLevel());
             }
-            System.out.println("O " + target.getName_monster() + " level " + target.getLevel_monster() + " morreu!");
+
+        }
+        else {
+            //ataque do monstro
+            this.setLife(getLife() - target.getBase_damage());
+            System.out.println(target.getName_monster() + " Atacou " + this.getName() + " causando " + target.getBase_damage() + " de dano");
+            System.out.println("Vida do " + this.getName() + " : " + this.getLife());
+            if (this.getLife() == 0){
+                System.out.println("Você morreu!");
+                this.setStatus_life(false);
+
+            }
         }
     }
 }

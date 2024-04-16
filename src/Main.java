@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Sword sword = new Sword(100, "Facão");
+        Sword sword = new Sword(10, "Facão");
         Personagem hero = new Personagem("Heroi", sword);
         Sword foice = new Sword(15, "Foice");
         Monster monstro1 = new Monster("Vilão");
@@ -11,14 +11,14 @@ public class Main {
 
         do {
             hero.attacks(monstro1);
+            System.out.println("Vida do " + monstro1.getName_monster() + " : " + monstro1.getLife_monster());
+
             hero.attacks(monstro2);
-
-            System.out.println("Vida do " + monstro1.getName_monster() + " " + monstro1.getLife_monster());
-            System.out.println(hero.getLife());
-
-
-            System.out.println("Vida do " + monstro2.getName_monster() + " " +  monstro2.getLife_monster());
-            System.out.println(hero.getLife());
+            System.out.println("Vida do " + monstro1.getName_monster() + " : " + monstro1.getLife_monster());
+            if (!(hero.isStatus_life())){
+                System.out.println("GAME OVER!");
+                break;
+            }
 
         } while (monstro1.getLife_monster() != 0);
 
