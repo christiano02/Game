@@ -1,4 +1,8 @@
-public class Personagem {
+package components.character;
+
+import components.weapons.Sword;
+
+public abstract class AbstractCharacter {
     private final String name;
     private int life = 100;
     private Sword sword;
@@ -9,7 +13,7 @@ public class Personagem {
     private double xp_limit;
  
     //construtor
-    public Personagem(String name, Sword sword){
+    public AbstractCharacter(String name, Sword sword){
         this.name = name;
         this.sword = sword;
         this.level = 1;
@@ -91,7 +95,7 @@ public class Personagem {
         System.out.println("Level Up!\n Level:" + this.level);
         }
     //metodo de ataque do personagem ao outro
-    public void ataca(Personagem target){
+    public void ataca(AbstractCharacter target){
         int xp_monster = 50;
         int damage = sword.getBase_damage();
         target.life -= damage;

@@ -1,3 +1,5 @@
+package components.weapons;
+
 public class Sword {
     private int base_damage;
     private String sword_name;
