@@ -1,19 +1,23 @@
 package components.character;
 
+import components.logic.battleSystem.itens.Item;
 import components.weapons.Sword;
 
-public abstract class AbstractCharacter {
+import java.util.ArrayList;
+
+public abstract class AbstractPlayer {
     private final String name;
     private int life = 100;
     private Sword sword;
     private int level;
     private int monster_kil;
-    private int xp;
+    private double xp;
     private boolean death_moster;
     private double xp_limit;
+    private ArrayList<Item> inventario;
  
     //construtor
-    public AbstractCharacter(String name, Sword sword){
+    public AbstractPlayer(String name, Sword sword){
         this.name = name;
         this.sword = sword;
         this.level = 1;
@@ -23,7 +27,14 @@ public abstract class AbstractCharacter {
 
     }
 
-    
+
+    public ArrayList<Item> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(ArrayList<Item> inventario) {
+        this.inventario = inventario;
+    }
 
     //setters e gatters
     public Sword getSword() {
@@ -95,7 +106,7 @@ public abstract class AbstractCharacter {
         System.out.println("Level Up!\n Level:" + this.level);
         }
     //metodo de ataque do personagem ao outro
-    public void ataca(AbstractCharacter target){
+    public void ataca(AbstractPlayer target){
         int xp_monster = 50;
         int damage = sword.getBase_damage();
         target.life -= damage;
