@@ -10,11 +10,11 @@ public abstract class AbstractPlayer {
     private int life = 100;
     private Sword sword;
     private int level;
-    private int monster_kil;
+    private int monsterKill;
     private double xp;
-    private boolean death_moster;
-    private double xp_limit;
-    private ArrayList<Item> inventario;
+    private boolean deathMonster;
+    private double experienceLimit;
+    private ArrayList<Item> inventory;
  
     //construtor
     public AbstractPlayer(String name, Sword sword){
@@ -22,18 +22,18 @@ public abstract class AbstractPlayer {
         this.sword = sword;
         this.level = 1;
         this.xp = 0;
-        this.monster_kil = 0;
-        this.xp_limit = 100;
+        this.monsterKill = 0;
+        this.experienceLimit = 100;
 
     }
 
 
-    public ArrayList<Item> getInventario() {
-        return inventario;
+    public ArrayList<Item> getInventory() {
+        return inventory;
     }
 
-    public void setInventario(ArrayList<Item> inventario) {
-        this.inventario = inventario;
+    public void setInventorye(ArrayList<Item> inventory) {
+        this.inventory = inventory;
     }
 
     //setters e gatters
@@ -50,33 +50,37 @@ public abstract class AbstractPlayer {
         this.xp = (int) xp;
     }
     public double getXp_limit() {
-        return xp_limit;
+        return experienceLimit;
     }
 
     public void setXp_limit(double xp_limit) {
-        this.xp_limit = xp_limit;
+        this.experienceLimit = xp_limit;
     }
     public boolean isDeath_moster() {
-        return death_moster;
+        return deathMonster;
     }
-    public void setDeath_moster(boolean death_moster) {
-        this.death_moster = death_moster;
-    }
-
-    public Sword getEspada() {
-        return sword;
+    public void setDeath_moster(boolean deathMoster) {
+        this.deathMonster = deathMoster;
     }
 
-    public void setEspada(Sword sword) {
-        this.sword = sword;
+    public boolean isDeathMonster() {
+        return deathMonster;
     }
 
-    public int getLife() {
-        return life;
+    public void setDeathMonster(boolean deathMonster) {
+        this.deathMonster = deathMonster;
     }
 
-    public void setLife(int life) {
-        this.life = life;
+    public double getExperienceLimit() {
+        return experienceLimit;
+    }
+
+    public void setExperienceLimit(double experienceLimit) {
+        this.experienceLimit = experienceLimit;
+    }
+
+    public void setInventory(ArrayList<Item> inventory) {
+        this.inventory = inventory;
     }
 
     public int getLevel() {
@@ -87,40 +91,25 @@ public abstract class AbstractPlayer {
         this.level = level;
     }
 
-    public int getMonster_kil() {
-        return monster_kil;
+    public int getLife() {
+        return life;
     }
 
-    public void setMonster_kil(int monster_kil) {
-        this.monster_kil = monster_kil;
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getMonsterKill() {
+        return monsterKill;
+    }
+
+    public void setMonsterKill(int monsterKill) {
+        this.monsterKill = monsterKill;
     }
 
     public String getName() {
         return name;
     }
 
-    public void level_up(){
-        setLevel(getLevel() + 1);
-        setXp(getXp() - getXp_limit());
-        setXp_limit(getXp_limit() * 1.5);
-        System.out.println("Level Up!\n Level:" + this.level);
-        }
-    //metodo de ataque do personagem ao outro
-    public void ataca(AbstractPlayer target){
-        int xp_monster = 50;
-        int damage = sword.getBase_damage();
-        target.life -= damage;
-        System.out.println(getName() + " Atacou " + target.getName() + " causando " + damage + " de dano");
-            if (target.getLife() == 0){
-                this.xp += xp_monster;
-                if (this.getXp()>= this.getXp_limit()) {
-                    this.level_up();
-                    
-                } 
-                target.setMonster_kil(target.getMonster_kil() + 1);
-                System.out.println("O " + target.getName() + "level" + target.getLevel() + " morreu!");
-        }
-
-    }
 }
 

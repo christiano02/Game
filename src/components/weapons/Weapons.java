@@ -38,5 +38,7 @@ public abstract class Weapons {
         this.swordName = swordName;
     }
     //metodo de nivel da arma
-    abstract void upLevelArm();
+    public void upLevelArm(){
+
+    }
 }

@@ -9,8 +9,4 @@ public class Sword extends Weapons {
         super(baseDamage, level, swordName);
     }
 
-    @Override
-    void upLevelArm() {
-
-    }
 }
