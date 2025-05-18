@@ -11,7 +11,7 @@ public abstract class AbstractPlayer {
     private Sword sword;
     private int level;
     private int monsterKill;
-    private double xp;
+    private double experience;
     private boolean deathMonster;
     private double experienceLimit;
     private ArrayList<Item> inventory;
@@ -21,13 +21,13 @@ public abstract class AbstractPlayer {
         this.name = name;
         this.sword = sword;
         this.level = 1;
-        this.xp = 0;
+        this.experience = 0;
         this.monsterKill = 0;
         this.experienceLimit = 100;
 
     }
 
-
+    //setters e gatters
     public ArrayList<Item> getInventory() {
         return inventory;
     }
@@ -36,31 +36,21 @@ public abstract class AbstractPlayer {
         this.inventory = inventory;
     }
 
-    //setters e gatters
+
     public Sword getSword() {
         return sword;
     }
+
     public void setSword(Sword sword) {
         this.sword = sword;
     }
-    public double getXp() {
-        return xp;
-    }
-    public void setXp(double xp) {
-        this.xp = (int) xp;
-    }
-    public double getXp_limit() {
-        return experienceLimit;
+
+    public double getExperience() {
+        return experience;
     }
 
-    public void setXp_limit(double xp_limit) {
-        this.experienceLimit = xp_limit;
-    }
-    public boolean isDeath_moster() {
-        return deathMonster;
-    }
-    public void setDeath_moster(boolean deathMoster) {
-        this.deathMonster = deathMoster;
+    public void setExperience(double experience) {
+        this.experience = experience;
     }
 
     public boolean isDeathMonster() {

@@ -2,16 +2,16 @@ package components.weapons;
 
 public abstract class Weapons {
     private int baseDamage;
-    private String swordName;
-    private int level;
+    private String weaponName;
+    private int weaponLevel;
 
     public Weapons() {
     }
 
-    public Weapons(int baseDamage, int level, String swordName) {
+    public Weapons(int baseDamage, int weaponLevel, String weaponName) {
         this.baseDamage = baseDamage;
-        this.level = level;
-        this.swordName = swordName;
+        this.weaponLevel = weaponLevel;
+        this.weaponName = weaponName;
     }
 
     public int getBaseDamage() {
@@ -22,23 +22,23 @@ public abstract class Weapons {
         this.baseDamage = baseDamage;
     }
 
-    public int getLevel() {
-        return level;
+    public int getWeaponLevel() {
+        return weaponLevel;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setWeaponLevel(int weaponLevel) {
+        this.weaponLevel = weaponLevel;
     }
 
-    public String getSwordName() {
-        return swordName;
+    public String getWeaponName() {
+        return weaponName;
     }
 
-    public void setSwordName(String swordName) {
-        this.swordName = swordName;
+    public void setWeaponName(String weaponName) {
+        this.weaponName = weaponName;
     }
     //metodo de nivel da arma
-    public void upLevelArm(){
+    public void levelUpWeapon(){
 
     }
 }
