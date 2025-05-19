@@ -6,43 +6,42 @@ import components.weapons.Sword;
 import java.util.ArrayList;
 
 public abstract class AbstractPlayer {
-    private final String name;
+    private String name;
     private int life = 100;
-    private Sword sword;
     private int level;
     private int monsterKill;
     private double experience;
     private boolean deathMonster;
-    private double experienceLimit;
     private ArrayList<Item> inventory;
  
     //construtor
-    public AbstractPlayer(String name, Sword sword){
+
+
+    public AbstractPlayer() {
+    }
+
+    public AbstractPlayer(String name, boolean deathMonster, double experience, ArrayList<Item> inventory,
+                          int level, int life, int monsterKill) {
         this.name = name;
-        this.sword = sword;
-        this.level = 1;
-        this.experience = 0;
-        this.monsterKill = 0;
-        this.experienceLimit = 100;
+        this.deathMonster = deathMonster;
+        this.experience = experience;
+        this.inventory = inventory;
+        this.level = level;
+        this.life = life;
+        this.monsterKill = monsterKill;
 
     }
+
 
     //setters e gatters
-    public ArrayList<Item> getInventory() {
-        return inventory;
+
+
+    public boolean isDeathMonster() {
+        return deathMonster;
     }
 
-    public void setInventorye(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
-
-
-    public Sword getSword() {
-        return sword;
-    }
-
-    public void setSword(Sword sword) {
-        this.sword = sword;
+    public void setDeathMonster(boolean deathMonster) {
+        this.deathMonster = deathMonster;
     }
 
     public double getExperience() {
@@ -53,20 +52,8 @@ public abstract class AbstractPlayer {
         this.experience = experience;
     }
 
-    public boolean isDeathMonster() {
-        return deathMonster;
-    }
-
-    public void setDeathMonster(boolean deathMonster) {
-        this.deathMonster = deathMonster;
-    }
-
-    public double getExperienceLimit() {
-        return experienceLimit;
-    }
-
-    public void setExperienceLimit(double experienceLimit) {
-        this.experienceLimit = experienceLimit;
+    public ArrayList<Item> getInventory() {
+        return inventory;
     }
 
     public void setInventory(ArrayList<Item> inventory) {
@@ -100,6 +87,6 @@ public abstract class AbstractPlayer {
     public String getName() {
         return name;
     }
-
+    
 }
 
