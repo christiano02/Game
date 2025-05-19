@@ -2,17 +2,17 @@ package components.characterEnemy;
 
 public class Enemy {
 
-    private String nameEnemy;
+    private String name;
     private int baseDamage;
-    private int lifeEnemy;
+    private int life;
 
     public Enemy() {
     }
 
-    public Enemy(int baseDamage, int lifeEnemy, String nameEnemy) {
+    public Enemy(int baseDamage, int life, String name) {
         this.baseDamage = baseDamage;
-        this.lifeEnemy = lifeEnemy;
-        this.nameEnemy = nameEnemy;
+        this.life = life;
+        this.name = name;
     }
 
     public int getBaseDamage() {
@@ -23,19 +23,19 @@ public class Enemy {
         this.baseDamage = baseDamage;
     }
 
-    public int getLifeEnemy() {
-        return lifeEnemy;
+    public int getLife() {
+        return life;
     }
 
-    public void setLifeEnemy(int lifeEnemy) {
-        this.lifeEnemy = lifeEnemy;
+    public void setLife(int life) {
+        this.life = life;
     }
 
-    public String getNameEnemy() {
-        return nameEnemy;
+    public String getName() {
+        return name;
     }
 
-    public void setNameEnemy(String nameEnemy) {
-        this.nameEnemy = nameEnemy;
+    public void setName(String name) {
+        this.name = name;
     }
 }

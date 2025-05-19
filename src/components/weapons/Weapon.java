@@ -1,14 +1,14 @@
 package components.weapons;
 
-public abstract class Weapons {
+public class Weapon {
     private int baseDamage;
     private String weaponName;
     private int weaponLevel;
 
-    public Weapons() {
+    public Weapon() {
     }
 
-    public Weapons(int baseDamage, int weaponLevel, String weaponName) {
+    public Weapon(int baseDamage, int weaponLevel, String weaponName) {
         this.baseDamage = baseDamage;
         this.weaponLevel = weaponLevel;
         this.weaponName = weaponName;
