@@ -11,10 +11,5 @@ public class Player extends AbstractPlayer {
         super(name, deathMonster, experience, inventory, level, life, monsterKill, weapon);
     }
 
-    //metodo usar item
-    public void useItem(int index){
-        if (index >= 0 && index < getInventory().size()){
-            Item item = getInventory().remove(index);
-        }
-    }
+
 }

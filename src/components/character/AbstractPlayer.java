@@ -23,7 +23,7 @@ public abstract class AbstractPlayer {
         this.name = name;
         this.deathMonster = deathMonster;
         this.experience = experience;
-        this.inventory = inventory;
+        this.inventory = new ArrayList<>();
         this.level = level;
         this.life = life;
         this.monsterKill = monsterKill;
@@ -47,9 +47,7 @@ public abstract class AbstractPlayer {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
-    public void setInventory(ArrayList<Item> inventory) {
-        this.inventory = inventory;
-    }
+
     public int getLevel() {
         return level;
     }
@@ -79,6 +77,13 @@ public abstract class AbstractPlayer {
     }
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+    //metodo adicionar item no inventario
+    public boolean addItemInventory(int index, Item item){
+        if (index >= 0 && index <= inventory.size() ) {
+            inventory.add(index, item);
+        }
+        return true;
     }
 }
 
