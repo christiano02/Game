@@ -6,27 +6,31 @@ import java.util.Objects;
 
 public class Item {
     private String name;
-    private String type;
+    private HealingPotion healingPotion;
     private Player player;
+
     public Item(){
     }
 
-    public Item(String name, String type){
-        this.name = name;
-        this.type = type;
-    }
+
 
     //Metodo para usar item e remover item do inventario
     public boolean use(int indexInventory, Player player){
         if (indexInventory >= 0 && indexInventory <= player.getInventory().size()) {
             System.out.println("Vida atual: " + player.getLife());
-            if (Objects.equals(this.type, "heal")) {
-                player.setLife(player.getLife() + 10);
-                System.out.println("+ " + 10 + " de vida.");
+
+            Object item = player.getInventory().get(indexInventory);
+
+            if (item instanceof HealingPotion){
+                this.healingPotion.setValue(10);
+                player.setLife(player.getLife() + this.healingPotion.getValue());
+                System.out.println("+ " + this.healingPotion.getValue() + " de vida.");
                 System.out.println("Vida atual: " + player.getLife());
 
             }
             player.getInventory().remove(indexInventory);
+        }else {
+            System.out.println("Esse index não existe! ");
         }
         return true;
     }
